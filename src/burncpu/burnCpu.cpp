@@ -135,7 +135,6 @@ void BurnCpu::on_pushButton_clicked()
         status = true;
         add_startup_program();
         add_datafile();
-//        msTimer->start(10);
         msTimer->start(200);
         system("sync");
     } else if (state == "STOP") {
@@ -308,12 +307,12 @@ void BurnCpu::TimeSlot()
             ui->textBrowser->setText(pall);
         }
 
+        //把整数转换成字符串
+        QString hourstr = QString::number(hourTemp);
+        QString minutestr = QString::number(minuteTemp);
+        QString secondstr = QString::number(secondTemp);
+        displayTimer(hourstr,minutestr,secondstr);
     }
-    //把整数转换成字符串
-    QString hourstr = QString::number(hourTemp);
-    QString minutestr = QString::number(minuteTemp);
-    QString secondstr = QString::number(secondTemp);
-    displayTimer(hourstr,minutestr,secondstr);
 }
 
 void BurnCpu::displayTimer(QString hour, QString minute, QString second)
